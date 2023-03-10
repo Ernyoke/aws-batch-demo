@@ -34,7 +34,9 @@ resource "aws_subnet" "subnet" {
 }
 
 resource "aws_security_group" "sg" {
-  name = "${var.module_name}-sg"
+  name        = "${var.module_name}-sg"
+  description = "Movies batch demo SG."
+  vpc_id      = aws_vpc.vpc.id
 
   egress {
     from_port   = 0
@@ -49,8 +51,6 @@ resource "aws_batch_compute_environment" "compute_environment" {
 
   compute_resources {
     max_vcpus     = 4
-    min_vcpus     = 1
-    desired_vcpus = 2
 
     security_group_ids = [
       aws_security_group.sg.id
@@ -107,7 +107,7 @@ resource "aws_batch_job_definition" "job_definition" {
       },
       {
         type  = "MEMORY"
-        value = "1024"
+        value = "2048"
       }
     ]
 
