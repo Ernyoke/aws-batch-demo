@@ -8,7 +8,7 @@ variable "module_name" {
 variable "table_name" {
 }
 
-variable "bucket" {
+variable "bucket_name" {
 }
 
 variable "file_path" {
