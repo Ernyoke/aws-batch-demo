@@ -70,7 +70,15 @@ resource "aws_vpc_endpoint" "endpoints" {
   for_each = {
     "ecr" : "com.amazonaws.${var.aws_region}.ecr.dkr",
     "ecr-api" : "com.amazonaws.${var.aws_region}.ecr.api"
-    "logs" : "com.amazonaws.${var.aws_region}.logs"
+    "logs" : "com.amazonaws.${var.aws_region}.logs",
+    "ecs" : "com.amazonaws.${var.aws_region}.ecs",
+    "ecs-agent": "com.amazonaws.${var.aws_region}.ecs-agent"
+    "ecs-telemetry": "com.amazonaws.${var.aws_region}.ecs-telemetry"
+
+    # for debugging
+    "ssm" : "com.amazonaws.${var.aws_region}.ssm",
+    "ssm-messages" : "com.amazonaws.${var.aws_region}.ssmmessages",
+    "ec2-messages" : "com.amazonaws.${var.aws_region}.ec2messages"
   }
 
   service_name        = each.value
