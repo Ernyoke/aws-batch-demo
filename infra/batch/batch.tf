@@ -93,7 +93,7 @@ resource "aws_batch_job_definition" "job_definition" {
       },
       {
         name  = "BUCKET"
-        value = var.bucket
+        value = var.bucket_name
       },
       {
         name  = "FILE_PATH"
@@ -181,7 +181,7 @@ data "aws_iam_policy_document" "s3_read_only_policy_document" {
       "s3:ListObjectsInBucket",
     ]
 
-    resources = ["arn:aws:s3:::${var.bucket}"]
+    resources = ["arn:aws:s3:::${var.bucket_name}"]
 
     effect = "Allow"
   }
@@ -191,7 +191,7 @@ data "aws_iam_policy_document" "s3_read_only_policy_document" {
       "s3:GetObject",
     ]
 
-    resources = ["arn:aws:s3:::${var.bucket}/*"]
+    resources = ["arn:aws:s3:::${var.bucket_name}/*"]
 
     effect = "Allow"
   }
