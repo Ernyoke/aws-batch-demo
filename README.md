@@ -1,5 +1,7 @@
 # aws-batch-demo
 
+This repository contains the source code for article: [https://ervinszilagyi.dev/articles/an-introduction-to-aws-batch.html](https://ervinszilagyi.dev/articles/an-introduction-to-aws-batch.html)
+
 ## Deployment
 
 Requirements:
